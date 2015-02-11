@@ -6,19 +6,20 @@ Tested with oVirt version 3.5.0.1 release 1.el6, libvirt version 0.10.2 release 
 
 ## How to use:
 1. Enable SNMP on the oVirt or libvirt host
-- give direct access to libvirt for root (disabled by default for oVirt)
-- install and configure basic SNMP
-- install libvirt-snmp
-- create init-script or systemd service for libvirt-snmp
-- start and test the service
-see my detailed blogpost for instructions:
-[http://jensd.be/?p=494 Monitor oVirt or libvirt with SNMP and Zabbix]
+  - give direct access to libvirt for root (disabled by default for oVirt)
+  - install and configure basic SNMP
+  - install libvirt-snmp
+  - create init-script or systemd service for libvirt-snmp
+  - start and test the service
+
+see my detailed blogpost for instructions on how to enable SNMP for oVirt or libvirt:
+[Monitor oVirt or libvirt with SNMP and Zabbix](http://jensd.be/?p=494)
 
 2. Create a new value mapping in Zabbix:
-- On the Zabbix-server, go to: Afministration -> General -> Value Mapping (upper right corner)
-- Create value map
-- name: libvirt guest state
-- mappings: 
+  - On the Zabbix-server, go to: Afministration -> General -> Value Mapping (upper right corner)
+  - Create value map
+  - name: libvirt guest state
+  - mappings: 
 ````
 1 -> running
 2 -> blocked
@@ -29,22 +30,22 @@ see my detailed blogpost for instructions:
 ````
 	
 3. Import the template in Zabbix:
-- On the Zabbix-server, go to Configuration - Templates
-- click on Import
-- choose the file and click on Import
+  - On the Zabbix-server, go to Configuration - Templates
+  - click on Import
+  - choose the file and click on Import
 	
 4. Add your oVirt or libvirt hosts to Zabbix:
-- On the Zabbix-server, go to Configuration - Hosts
-- for each host: click on Create Host
-- On the host tab:
-- enter a host name 
-  - add an SNMP-interface with your ovirt or libvirt host's IP and/or hostname
+  - On the Zabbix-server, go to Configuration - Hosts
+  - for each host: click on Create Host
+  - On the host tab:
+  - enter a host name 
+    - add an SNMP-interface with your ovirt or libvirt host's IP and/or hostname
   - On the templates tab:
-  - add template "Template SNMP oVirt"
+    - add template "Template SNMP oVirt"
   - On the Macros tab:
-  - enter macro {$SNMP_COMMUNITY} with <community> as value
-  - enter macro {$SNMP_PORT} with your SNMP-port as value (default 161)
+    - enter macro {$SNMP_COMMUNITY} with <community> as value
+    - enter macro {$SNMP_PORT} with your SNMP-port as value (default 161)
   - click Save
 
 5. Wait for the discovery to fire that creates all items, graphs and triggers
-- by default, this takes 3600s or one hour :)
+  - by default, this takes 3600s or one hour :)
