@@ -3,6 +3,7 @@ This is a template which can be used to monitor oVirt or libvirt virtualization 
 
 The template was exported from Zabbix version 2.4.3
 Tested with oVirt version 3.5.0.1 release 1.el6, libvirt version 0.10.2 release 46.el6_6.2 on CentOS 6.6
+Tester with oVirt version 3.5.5 on CentOS 7.1 with systemd service files
 
 ## How to use:
 1. Enable SNMP on the oVirt or libvirt host
