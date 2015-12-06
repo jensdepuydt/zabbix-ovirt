@@ -1,0 +1,10 @@
+[Unit]
+Description=libvirtMib SubAgent for SNMP
+
+[Service]
+Type=forking
+EnvironmentFile=-/etc/sysconfig/libvirtMib
+ExecStart=/bin/sh -c 'LIBVIRT_DEFAULT_URI=${LIBVIRT_DEFAULT_URI} /usr/bin/libvirtMib_subagent'
+
+[Install]
+WantedBy=multi-user.target
