@@ -16,7 +16,7 @@ see my detailed blogpost for instructions on how to enable SNMP for oVirt or lib
 [Monitor oVirt or libvirt with SNMP and Zabbix](http://jensd.be/?p=494)
 
 2. Create a new value mapping in Zabbix:
-  - On the Zabbix-server, go to: Afministration -> General -> Value Mapping (upper right corner)
+  - On the Zabbix-server, go to: Administration -> General -> Value Mapping (upper right corner)
   - Create value map
   - name: libvirt guest state
   - mappings: 
